@@ -19,4 +19,6 @@
 @property(nonatomic) CGFloat width;
 @property(nonatomic) CGFloat height;
 
+- (void)expandFrame:(CGFloat)length;
+
 @end

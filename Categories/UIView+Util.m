@@ -90,4 +90,11 @@
   self.frame = frame;
 }
 
+- (void)expandFrame:(CGFloat)length {
+  self.left -= length;
+  self.top -= length;
+  self.width += length * 2;
+  self.height += length * 2;
+}
+
 @end
