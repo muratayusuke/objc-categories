@@ -14,5 +14,7 @@
               font:(UIFont*)font
           maxWidth:(CGFloat)maxWidth;
 - (void)addUnderLine;
+- (void)setKern:(CGFloat)kern;
+- (void)addAttributes:(NSDictionary*)attributes;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "UILabel+Util.h"
+#import "NSDictionary+Merge.h"
 
 @implementation UILabel (Util)
 
@@ -30,14 +31,24 @@
 }
 
 - (void)addUnderLine {
-  NSAttributedString *str = [[NSAttributedString alloc]
-      initWithString:self.text
-          attributes:@{
-                       NSUnderlineStyleAttributeName :
-                       [NSNumber numberWithInteger:NSUnderlineStyleSingle],
-                       NSFontAttributeName : self.font
-                     }];
-  self.attributedText = str;
+  [self addAttributes:@{
+                        NSUnderlineStyleAttributeName :
+                        [NSNumber numberWithInteger:NSUnderlineStyleSingle]
+                      }];
+}
+
+- (void)setKern:(CGFloat)kern {
+  [self addAttributes:@{NSKernAttributeName : @(kern)}];
+}
+
+- (void)addAttributes:(NSDictionary *)attributes {
+  NSDictionary *currentAttributes =
+      [self.attributedText attributesAtIndex:0 effectiveRange:nil];
+  NSDictionary *newAttributes =
+      [currentAttributes mergeWithDictionary:attributes];
+  self.attributedText =
+      [[NSAttributedString alloc] initWithString:self.text
+                                      attributes:newAttributes];
 }
 
 @end
