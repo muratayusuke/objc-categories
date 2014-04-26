@@ -35,9 +35,7 @@
 }
 
 - (void)setLeft:(CGFloat)left {
-  CGRect frame = self.frame;
-  frame.origin.x = left;
-  self.frame = frame;
+  self.centerX = left + self.width / 2;
 }
 
 - (CGFloat)right {
@@ -45,9 +43,7 @@
 }
 
 - (void)setRight:(CGFloat)right {
-  CGRect frame = self.frame;
-  frame.origin.x = right - frame.size.width;
-  self.frame = frame;
+  self.centerX = right - self.width / 2;
 }
 
 - (CGFloat)top {
@@ -55,9 +51,7 @@
 }
 
 - (void)setTop:(CGFloat)top {
-  CGRect frame = self.frame;
-  frame.origin.y = top;
-  self.frame = frame;
+  self.centerY = top + self.height / 2;
 }
 
 - (CGFloat)bottom {
@@ -65,9 +59,7 @@
 }
 
 - (void)setBottom:(CGFloat)bottom {
-  CGRect frame = self.frame;
-  frame.origin.y = bottom - frame.size.height;
-  self.frame = frame;
+  self.centerY = bottom - self.height / 2;
 }
 
 - (CGFloat)width {
