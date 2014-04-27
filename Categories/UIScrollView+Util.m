@@ -27,4 +27,14 @@
   self.contentSize = CGSizeMake(self.width, height);
 }
 
+- (void)fitContentHeightWithSubViews {
+  CGFloat height = 0;
+  for (UIView* view in self.subviews) {
+    if (height < view.bottom) {
+      height = view.bottom;
+    }
+  }
+  self.contentHeight = height;
+}
+
 @end
