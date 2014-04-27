@@ -89,4 +89,14 @@
   self.height += length * 2;
 }
 
+- (void)fitHeightWithSubViews {
+  CGFloat height = 0;
+  for (UIView* view in self.subviews) {
+    if (height < view.bottom) {
+      height = view.bottom;
+    }
+  }
+  self.height = height;
+}
+
 @end

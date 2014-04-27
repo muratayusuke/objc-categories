@@ -20,5 +20,6 @@
 @property(nonatomic) CGFloat height;
 
 - (void)expandFrame:(CGFloat)length;
+- (void)fitHeightWithSubViews;
 
 @end
