@@ -87,6 +87,11 @@
   self.top -= length;
   self.width += length * 2;
   self.height += length * 2;
+
+  for (UIView* view in self.subviews) {
+    view.left += length;
+    view.top += length;
+  }
 }
 
 - (void)fitHeightWithSubViews {
