@@ -104,4 +104,15 @@
   self.height = height;
 }
 
+- (void)addBorderBottom:(CGFloat)lineWeight color:(UIColor*)color {
+  UIView* line = [[UIView alloc] init];
+  line.width = self.width;
+  line.height = lineWeight;
+  line.top = self.height;
+  line.backgroundColor = color;
+  [self addSubview:line];
+
+  self.height += lineWeight;
+}
+
 @end

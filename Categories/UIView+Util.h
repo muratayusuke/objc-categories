@@ -21,5 +21,6 @@
 
 - (void)expandFrame:(CGFloat)length;
 - (void)fitHeightWithSubViews;
+- (void)addBorderBottom:(CGFloat)lineWeight color:(UIColor*)color;
 
 @end
