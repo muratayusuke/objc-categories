@@ -42,6 +42,9 @@
 }
 
 - (void)addAttributes:(NSDictionary *)attributes {
+  if (self.text.length == 0) {
+    return;
+  }
   NSDictionary *currentAttributes =
       [self.attributedText attributesAtIndex:0 effectiveRange:nil];
   NSDictionary *newAttributes =
