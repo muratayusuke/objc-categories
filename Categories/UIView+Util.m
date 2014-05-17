@@ -120,4 +120,10 @@
         self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
 
+- (void)removeSubviews {
+  for (UIView* view in [self subviews]) {
+    [view removeFromSuperview];
+  }
+}
+
 @end

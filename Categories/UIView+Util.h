@@ -23,5 +23,6 @@
 - (void)fitHeightWithSubViews;
 - (void)addBorderBottom:(CGFloat)lineWeight color:(UIColor*)color;
 - (void)logFrame;
+- (void)removeSubviews;
 
 @end
