@@ -12,6 +12,8 @@
 
 @property(nonatomic) CGFloat contentWidth;
 @property(nonatomic) CGFloat contentHeight;
+@property(nonatomic) CGFloat contentOffsetX;
+@property(nonatomic) CGFloat contentOffsetY;
 - (void)fitContentHeightWithSubViews;
 
 @end

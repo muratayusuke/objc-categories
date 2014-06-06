@@ -27,6 +27,22 @@
   self.contentSize = CGSizeMake(self.width, height);
 }
 
+- (CGFloat)contentOffsetX {
+  return self.contentOffset.x;
+}
+
+- (void)setContentOffsetX:(CGFloat)x {
+  self.contentOffset = CGPointMake(x, self.contentOffset.y);
+}
+
+- (CGFloat)contentOffsetY {
+  return self.contentOffset.y;
+}
+
+- (void)setContentOffsetY:(CGFloat)y {
+  self.contentOffset = CGPointMake(self.contentOffset.x, y);
+}
+
 - (void)fitContentHeightWithSubViews {
   CGFloat height = 0;
   for (UIView* view in self.subviews) {
