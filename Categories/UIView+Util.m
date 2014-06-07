@@ -7,8 +7,15 @@
 //
 
 #import "UIView+Util.h"
+#import <objc/runtime.h>
+
+NSString* const kOnTouchesEndedKey = @"kOnTouchesEndedKey";
 
 @implementation UIView (Util)
+
+@dynamic onTouchesEnded;
+
+#pragma mark--- setters & getters
 
 - (CGFloat)centerX {
   return self.center.x;
@@ -82,6 +89,18 @@
   self.frame = frame;
 }
 
+- (basicBlock)onTouchesEnded {
+  return objc_getAssociatedObject(self,
+                                  (__bridge const void*)(kOnTouchesEndedKey));
+}
+
+- (void)setOnTouchesEnded:(basicBlock)onTouchesEnded {
+  objc_setAssociatedObject(self, (__bridge const void*)(kOnTouchesEndedKey),
+                           onTouchesEnded, OBJC_ASSOCIATION_COPY);
+}
+
+#pragma mark--- functions
+
 - (void)expandFrame:(CGFloat)length {
   self.left -= length;
   self.top -= length;
@@ -123,6 +142,13 @@
 - (void)removeSubviews {
   for (UIView* view in [self subviews]) {
     [view removeFromSuperview];
+  }
+}
+
+- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+  [super touchesEnded:touches withEvent:event];
+  if (self.onTouchesEnded) {
+    self.onTouchesEnded();
   }
 }
 
