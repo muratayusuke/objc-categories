@@ -53,4 +53,9 @@
   self.contentHeight = height;
 }
 
+- (void)fitContentHeightWithSubViewsWithPadding:(CGFloat)padding {
+  [self fitContentHeightWithSubViews];
+  self.contentHeight += padding;
+}
+
 @end

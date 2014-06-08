@@ -15,5 +15,6 @@
 @property(nonatomic) CGFloat contentOffsetX;
 @property(nonatomic) CGFloat contentOffsetY;
 - (void)fitContentHeightWithSubViews;
+- (void)fitContentHeightWithSubViewsWithPadding:(CGFloat)padding;
 
 @end
